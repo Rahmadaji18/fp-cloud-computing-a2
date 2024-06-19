@@ -197,26 +197,26 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
    ```bash mv index.html /var/www/html/index.html```  
 6. Ubah cara fetch pada index.html agar mengarah ke ip worker  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5d53aa94-fa1a-4b62-8269-7d3dedc2e3a9)  
-   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/40c67a85-058d-466d-b3f8-6c71543099a5)
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/40c67a85-058d-466d-b3f8-6c71543099a5)  
 7. Konfigurasikan /etc/nginx/sites-enabled/default  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/f31e9a09-73e0-4abd-8f52-8b5503cc394b)  
    Tambahkan routing ke endpoint /analyze dan /history  
 8. Konfigurasikan ip database pada file sentiment-analysis.py agar tersambung  
-   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/eedac14a-3ad1-4bba-a7f2-45659bb832ca)
-9. Jika sudah restart nginx
-    ```bash sudo service nginx restart```
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/eedac14a-3ad1-4bba-a7f2-45659bb832ca)  
+9. Jika sudah restart nginx  
+    ```bash sudo service nginx restart```  
 10. Jalankan sentiment-analysis.py  
     ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/26157122-dbcd-4e67-bbd6-599b732d07b1)  
 11. Coba lakukan query untuk mengetes apakah berjalan dengan lancar  
     ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/8cd4a7cf-e81a-4ec3-876e-5a9c16543163)  
-    Jika muncul seperti gambar maka konfigurasi benar.
+    Jika muncul seperti gambar maka konfigurasi benar.  
 
-### Konfigurasi VM-2 (Worker 2)
-1. Sambungkan terminal windows ke terminal vm.
-   ```ssh root@152.42.229.121```
-   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/2024e70a-a1e0-4839-be45-6801a28178a4)
+### Konfigurasi VM-2 (Worker 2)  
+1. Sambungkan terminal windows ke terminal vm.  
+   ```ssh root@152.42.229.121```  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/2024e70a-a1e0-4839-be45-6801a28178a4)  
    Masukkan password vm.  
-2. Download semua resource keperluan dari github
+2. Download semua resource keperluan dari github  
    ```bash
    wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/FE/index.html
    wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/FE/styles.css
@@ -258,15 +258,60 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
 8. Konfigurasikan ip database pada file sentiment-analysis.py agar tersambung  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/eedac14a-3ad1-4bba-a7f2-45659bb832ca)  
 9. Jika sudah restart nginx  
-    ```bash sudo service nginx restart```
+    ```bash sudo service nginx restart```  
 10. Jalankan sentiment-analysis.py  
-    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/70c103c0-199d-4306-b310-b72545057335)
+    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/70c103c0-199d-4306-b310-b72545057335)  
 11. Coba lakukan query untuk mengetes apakah berjalan dengan lancar  
-    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/c73b8b6e-2d74-4b4c-aed0-8f6b32b79596)
+    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/c73b8b6e-2d74-4b4c-aed0-8f6b32b79596)  
     Jika muncul seperti gambar maka konfigurasi benar.
 
-## Hasil Pengujian Endpoint
+### Konfigurasi VM-4 (Load-Balancer 1 Round-Robin)
+1. Sambungkan terminal VM.  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/46ee167c-b5de-496e-a6c3-35cf2124f9f5)  
+2. Lakukan beberapa command berikut untuk install nginx  
+   ```bash
+   sudo apt update
+   sudo apt upgrade -y
+   sudo apt install nginx -y
+   ```
+3. Konfigurasikan file default pada /etc/nginx/sites-enabled/default  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/62cce576-d1f0-4037-85e1-fb5388311ad8)  
+4. Restart service nginx  
+   ```bash sudo service nginx restart```  
+5. Jika sudah test load-balancer dengan refresh page berkali-kali  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/f950b386-6958-40f6-b514-0fc35efcb06e)  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/9f2e40f4-3f01-47e0-b9c5-a91e37c947e9)  
 
-## Hasil Pengujian Locust
+### Konfigurasi VM-5 (Load-Balancer 2 Least-Connection) 
+1. Sambungkan terminal VM.  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/b7e7d1d4-cfc8-4133-929d-3e373f8f10ce)  
+2. Lakukan beberapa command berikut untuk install nginx  
+   ```bash
+   sudo apt update
+   sudo apt upgrade -y
+   sudo apt install nginx -y
+   ```
+3. Konfigurasikan file default pada /etc/nginx/sites-enabled/default  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/7b8362b6-a5cd-4d9d-8df8-01b8f10b01cd)  
+4. Restart service nginx  
+   ```bash sudo service nginx restart```  
+5. Jika sudah test load-balancer dengan refresh page berkali-kali  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/f566b9b1-59a5-4e92-b16d-78d78d9a08bc)  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/1a361196-0730-49c8-a1e3-0d40fc5022cd)  
+
+## Hasil Pengujian Endpoint  
+### Uji Endpoint /analyze  
+#### 152.42.229.121/analyze
+![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/6306661d-3768-4473-ab89-05f90e191962)
+#### 152.42.226.87/analyze
+![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/a47c71fe-46e2-4cf7-9feb-50b38ada1536)
+
+### Uji Endpoint /history  
+#### 152.42.226.87/history:  
+![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/f7021abc-d066-4a56-927a-e34d3e101f3a)  
+#### 152.42.229.121/history:  
+![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/4c6a2489-9821-4ed8-9b82-3c73d6371fa6)  
+
+## Hasil Pengujian Locust  
 
 ## Kesimpulan dan Saran

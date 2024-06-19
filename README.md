@@ -55,13 +55,54 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
 ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/50f48ca5-8de3-4003-b642-a839efbb34dd)
 
 ### Tabel Harga:
-| No. | Nama | Spesifikasi | Fungsi | Harga/Bulan |
-| --- | --- | --- | --- | --- |
-| 1. | KelompokTKA2A-VM1 | 2 Intel vCPU / 2GB Memory / 60GB Disk SSD / SGP1 - Ubuntu 24.04 (LTS) x64 | App Worker 1 | 18$ |
-| 2. | KelompokTKA2A-VM2 | 2 Intel vCPU / 2GB Memory / 60GB Disk SSD / SGP1 - Ubuntu 24.04 (LTS) x64 | App Worker 2 | 18$ |
-| 3. | KelompokTKA2A-VM3 | 2 Intel vCPU / 2GB Memory / 60GB Disk SSD / SGP1 - Ubuntu 24.04 (LTS) x64 | Mongo Database | 18$ |
-| 4. | KelompokTKA2A-VM4 | 1 Intel vCPU / 1GB Memory / 10GB Disk SSD / Asia-Southeast2(Jakarta) - Ubuntu 24.04 (LTS) x64 | Load Balancer 1 (Round-Robin) | 6$ |
-| 5. | KelompokTKA2A-VM5 | 1 Intel vCPU / 512MB Memory / 10GB Disk SSD / Asia-Southeast2(Jakarta) - Ubuntu 24.04 (LTS) x64 | Load Balancer 2 (Least-Connection) | 4$ |
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Nama</th>
+    <th>Spesifikasi</th>
+    <th>Fungsi</th>
+    <th>Harga/Bulan</th>
+  </tr>
+  <tr>
+    <td>1.</td>
+    <td>KelompokTKA2A-VM1</td>
+    <td>2 Intel vCPU / 2GB Memory / 60GB Disk SSD / SGP1 - Ubuntu 24.04 (LTS) x64</td>
+    <td>App Worker 1</td>
+    <td>18$</td>
+  </tr>
+  <tr>
+    <td>2.</td>
+    <td>KelompokTKA2A-VM2</td>
+    <td>2 Intel vCPU / 2GB Memory / 60GB Disk SSD / SGP1 - Ubuntu 24.04 (LTS) x64</td>
+    <td>App Worker 2</td>
+    <td>18$</td>
+  </tr>
+  <tr>
+    <td>3.</td>
+    <td>KelompokTKA2A-VM3</td>
+    <td>2 Intel vCPU / 2GB Memory / 60GB Disk SSD / SGP1 - Ubuntu 24.04 (LTS) x64</td>
+    <td>Mongo Database</td>
+    <td>18$</td>
+  </tr>
+  <tr>
+    <td>4.</td>
+    <td>KelompokTKA2A-VM4</td>
+    <td>1 Intel vCPU / 1GB Memory / 10GB Disk SSD / Asia-Southeast2(Jakarta) - Ubuntu 24.04 (LTS) x64</td>
+    <td>Load Balancer 1 (Round-Robin)</td>
+    <td>6$</td>
+  </tr>
+  <tr>
+    <td>5.</td>
+    <td>KelompokTKA2A-VM5</td>
+    <td>1 Intel vCPU / 512MB Memory / 10GB Disk SSD / Asia-Southeast2(Jakarta) - Ubuntu 24.04 (LTS) x64</td>
+    <td>Load Balancer 2 (Least-Connection)</td>
+    <td>4$</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="right"><strong>Total</strong></td>
+    <td><strong>64$</strong></td>
+  </tr>
+</table>
 
 ## Implementasi
 

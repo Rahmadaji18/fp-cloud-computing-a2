@@ -154,7 +154,7 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
 12. Cek user yang baru dibuat  
     ```db.getUser("KelompokTKA2A")```
 13. Sambungkan ke MongoDBCompass  
-    ```mongodb://KelompokTKA2A:KelompokTKA2A@146.190.102.47:27017```  
+    ```mongodb://146.190.102.47:27017```  
 14. Jika sudah bisa terhubung dengan Compass maka konfigurasi database berhasil.  
 
 ### Konfigurasi VM-1 (Worker 1)
@@ -167,7 +167,6 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
    wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/FE/index.html
    wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/FE/styles.css
    wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/BE/sentiment-analysis.py
-   wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/Test/locustfile.py
    ```
 3. Lakukan beberapa command berikut untuk install nginx
    ```bash
@@ -194,7 +193,7 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
    pip install gevent
    ```
 5. Pindahkan index.html kedalam /var/www/html  
-   ```bash mv index.html /var/www/html/index.html```  
+   ```mv index.html /var/www/html/index.html```  
 6. Ubah cara fetch pada index.html agar mengarah ke ip worker  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5d53aa94-fa1a-4b62-8269-7d3dedc2e3a9)  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/40c67a85-058d-466d-b3f8-6c71543099a5)  
@@ -204,7 +203,7 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
 8. Konfigurasikan ip database pada file sentiment-analysis.py agar tersambung  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/eedac14a-3ad1-4bba-a7f2-45659bb832ca)  
 9. Jika sudah restart nginx  
-    ```bash sudo service nginx restart```  
+    ```sudo service nginx restart```  
 10. Jalankan sentiment-analysis.py  
     ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/26157122-dbcd-4e67-bbd6-599b732d07b1)  
 11. Coba lakukan query untuk mengetes apakah berjalan dengan lancar  
@@ -221,7 +220,6 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
    wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/FE/index.html
    wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/FE/styles.css
    wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/BE/sentiment-analysis.py
-   wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/Test/locustfile.py
    ```
 3. Lakukan beberapa command berikut untuk install nginx
    ```bash
@@ -248,7 +246,7 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
    pip install gevent
    ```
 5. Pindahkan index.html kedalam /var/www/html  
-   ```bash mv index.html /var/www/html/index.html```  
+   ```mv index.html /var/www/html/index.html```  
 6. Ubah cara fetch pada index.html agar mengarah ke ip worker  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/de4a5033-16d6-459c-a2d3-cb597d6414bb)
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/955c5726-d483-4750-b1a7-22d4a295c22e)
@@ -277,7 +275,7 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
 3. Konfigurasikan file default pada /etc/nginx/sites-enabled/default  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/62cce576-d1f0-4037-85e1-fb5388311ad8)  
 4. Restart service nginx  
-   ```bash sudo service nginx restart```  
+   ```sudo service nginx restart```  
 5. Jika sudah test load-balancer dengan refresh page berkali-kali  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/f950b386-6958-40f6-b514-0fc35efcb06e)  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/9f2e40f4-3f01-47e0-b9c5-a91e37c947e9)  
@@ -313,5 +311,50 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
 ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/4c6a2489-9821-4ed8-9b82-3c73d6371fa6)  
 
 ## Hasil Pengujian Locust  
+### Uji RPS Dalam 60 Detik
+- **34.101.97.188**  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/f0e64cbe-1719-49c6-985e-bd42717e32b7)
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/844062a3-4fae-4811-9fc4-0c085d016e3e)
 
+- **34.101.124.205**
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5b18a892-112d-4267-9862-67258265f66c)  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e051af22-1b7b-4cff-8db2-3eb2b447c0b8)
+
+### Uji Peak Concurrency Dengan Spawn Rate 50/s
+- **34.101.97.188**
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/3caeb3a2-74c1-4616-a2f0-16b46ca1d970)
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/8a33ef35-99db-4d25-a788-f2e06c4f6026)
+
+- **34.101.124.205**  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5d1ad87d-8100-42d9-9de7-d5f4904b6ea4)
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/115540b9-a23c-45d2-9480-465114f807c3)
+
+### Uji Peak Concurrency Dengan Spawn Rate 100/s
+- **34.101.97.188**
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/76f02003-1848-4d91-8988-26ebebac6e4d)
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e5dbb6e5-a6b9-4335-ae75-c10cb96e5d5b)
+
+- **34.101.124.205**
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/814bba0f-4418-46a6-943b-cefee27e0830)
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/3cec739c-8cfc-4519-9924-0aef474b99a3)
+
+### Uji Peak Concurrency Dengan Spawn Rate 200/s
+- **34.101.97.188**
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/c128c522-46c6-4b51-a1e2-f5014045e162)
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/47cc6749-3bbd-45ab-81c5-b0febf05af35)
+
+- **34.101.124.205**
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5f8af281-037a-489f-80fa-6356e610e053)
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/7a324e0b-33fc-43ca-810a-ba7c060a4451)
+
+### Uji Peak Concurrency Dengan Spawn Rate 500/s
+- **34.101.97.188**
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/9a2fcd28-46ed-4523-9655-56d082469982)
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/6c0d1982-a3f8-4aed-b772-69475cb87bda)
+
+- **34.101.124.205**
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e17fd601-485f-4697-bbb8-329fece5ad18)
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/c0deeef2-eb37-4074-8117-3fdab01259d1)
+
+  
 ## Kesimpulan dan Saran

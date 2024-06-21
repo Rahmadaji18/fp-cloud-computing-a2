@@ -315,46 +315,91 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
 - **34.101.97.188**  
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/f0e64cbe-1719-49c6-985e-bd42717e32b7)
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/844062a3-4fae-4811-9fc4-0c085d016e3e)
+  - Garis hijau menunjukkan RPS dari waktu ke waktu.
+  - Grafik RPS menunjukkan nilai yang berfluktuasi, tetapi kita perlu mengidentifikasi RPS puncak sambil memastikan bahwa tingkat kegagalan tetap 0%.
+  - Nilai RPS puncak diamati sekitar 25 permintaan per detik.
 
 - **34.101.124.205**
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5b18a892-112d-4267-9862-67258265f66c)  
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e051af22-1b7b-4cff-8db2-3eb2b447c0b8)
+  - Garis hijau menunjukkan RPS dari waktu ke waktu.
+  - Grafik RPS menunjukkan nilai yang berfluktuasi, tetapi kita perlu mengidentifikasi RPS puncak sambil memastikan bahwa tingkat kegagalan tetap 0%.
+  - Nilai RPS puncak diamati sekitar 20 permintaan per detik.
 
 ### Uji Peak Concurrency Dengan Spawn Rate 50/s
 - **34.101.97.188**
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/3caeb3a2-74c1-4616-a2f0-16b46ca1d970)
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/8a33ef35-99db-4d25-a788-f2e06c4f6026)
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 50 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 300 pengguna.
 
 - **34.101.124.205**  
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5d1ad87d-8100-42d9-9de7-d5f4904b6ea4)
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/115540b9-a23c-45d2-9480-465114f807c3)
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 50 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 300 pengguna.
 
 ### Uji Peak Concurrency Dengan Spawn Rate 100/s
 - **34.101.97.188**
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/76f02003-1848-4d91-8988-26ebebac6e4d)
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e5dbb6e5-a6b9-4335-ae75-c10cb96e5d5b)
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 100 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 300 pengguna.
 
 - **34.101.124.205**
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/814bba0f-4418-46a6-943b-cefee27e0830)
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/3cec739c-8cfc-4519-9924-0aef474b99a3)
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 100 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 300 pengguna.
 
 ### Uji Peak Concurrency Dengan Spawn Rate 200/s
 - **34.101.97.188**
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/c128c522-46c6-4b51-a1e2-f5014045e162)
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/47cc6749-3bbd-45ab-81c5-b0febf05af35)
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 200 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 300 pengguna.
 
 - **34.101.124.205**
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5f8af281-037a-489f-80fa-6356e610e053)
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/7a324e0b-33fc-43ca-810a-ba7c060a4451)
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 200 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 300 pengguna.
 
 ### Uji Peak Concurrency Dengan Spawn Rate 500/s
 - **34.101.97.188**
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/9a2fcd28-46ed-4523-9655-56d082469982)
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/6c0d1982-a3f8-4aed-b772-69475cb87bda)
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 500 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 500 pengguna.
 
 - **34.101.124.205**
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e17fd601-485f-4697-bbb8-329fece5ad18)
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/c0deeef2-eb37-4074-8117-3fdab01259d1)
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 500 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 500 pengguna.
 
-  
 ## Kesimpulan dan Saran
+
+1. Dari analisis hasil berdasarkan RPS :
+   - Algoritme Round Robin mampu mencapai RPS maksimum yang lebih tinggi (25) dibandingkan dengan algoritme Least Connection (20).
+   - Hal ini menunjukkan bahwa, untuk pengaturan dan skenario pengujian khusus ini, algoritma Round Robin memberikan kinerja yang lebih baik dalam hal menangani jumlah permintaan yang lebih tinggi per detik.
+
+   - **Round Robin**:
+     Lebih cocok untuk skenario di mana server memiliki kapasitas dan karakteristik kinerja yang sama, dan tujuannya adalah untuk memaksimalkan throughput.
+   - **Least Connection**:
+     Mungkin lebih efektif di lingkungan dengan server heterogen atau di mana tujuan utamanya adalah memastikan penyeimbangan beban berdasarkan beban server saat ini.
+
+2. Dari analisis hasil berdasarkan spawn rate:
+
+   a. Konsistensi di Kedua Algoritma:
+
+      - Baik algoritme Round Robin maupun Least Connection mencapai peak concurrency maksimum yang sama pada semua skenario yang diuji. Hal ini menunjukkan bahwa dalam pengujian khusus 
+      ini, tidak ada perbedaan kinerja yang signifikan antara kedua algoritme load balancing dalam hal menangani peak concurrency.
+
+   b. Skalabilitas:
+
+      - Kedua algoritme berhasil diskalakan untuk menangani peak concurrency maksimum yang diuji (hingga 500 pengguna) tanpa penurunan kinerja. Hal ini menunjukkan bahwa kedua 
+      algoritme mampu menskalakan secara efektif dalam kondisi tertentu.
+
+   c. Implikasi untuk Load Balancing:
+
+      - Karena kedua algoritma berkinerja sama baiknya dalam hal mencapai konkurensi puncak maksimum, pilihan antara Round Robin dan Least Connection dapat didasarkan pada faktor-faktor 
+      lain seperti:
+        - Round Robin: Kesederhanaan dan pemerataan beban di seluruh server.
+        - Least Connection: Penanganan ketidakseimbangan beban yang lebih baik dengan mengarahkan permintaan baru ke server yang tidak terlalu sibuk.
+       
+3. Saran
+
+   Meskipun hasilnya menunjukkan tidak ada perbedaan dalam peak concurrency, metrik kinerja lain seperti respons time, failure, dan pemanfaatan sumber daya dapat memberikan wawasan tambahan. Sebagai contoh, pada tingkat pengujian dengan 500 tingkat pemijahan, server mulai menunjukkan tanda-tanda ketegangan, termasuk peningkatan respons time dan beberapa kegagalan. Hal ini menunjukkan bahwa meskipun 500 pengguna adalah batas atas, kinerja optimal mungkin berada pada tingkat concurrency yang sedikit lebih rendah untuk menghindari kegagalan dan mempertahankan waktu respons yang wajar, pengujian lebih lanjut dengan kondisi yang berbeda dan metrik yang lebih rinci mungkin diperlukan untuk membuat keputusan yang lebih tepat.

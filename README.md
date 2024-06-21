@@ -317,14 +317,14 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/844062a3-4fae-4811-9fc4-0c085d016e3e)
   - Garis hijau menunjukkan RPS dari waktu ke waktu.
   - Grafik RPS menunjukkan nilai yang berfluktuasi, tetapi kita perlu mengidentifikasi RPS puncak sambil memastikan bahwa tingkat kegagalan tetap 0%.
-  - Nilai RPS puncak diamati sekitar 25 permintaan per detik.
+  - Nilai RPS puncak diamati sekitar 17 permintaan per detik.
 
 - **34.101.124.205**
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5b18a892-112d-4267-9862-67258265f66c)  
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e051af22-1b7b-4cff-8db2-3eb2b447c0b8)
   - Garis hijau menunjukkan RPS dari waktu ke waktu.
   - Grafik RPS menunjukkan nilai yang berfluktuasi, tetapi kita perlu mengidentifikasi RPS puncak sambil memastikan bahwa tingkat kegagalan tetap 0%.
-  - Nilai RPS puncak diamati sekitar 20 permintaan per detik.
+  - Nilai RPS puncak diamati sekitar 11 permintaan per detik.
 
 ### Uji Peak Concurrency Dengan Spawn Rate 50/s
 - **34.101.97.188**
@@ -373,7 +373,7 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
 ## Kesimpulan dan Saran
 
 1. Dari analisis hasil berdasarkan RPS :
-   - Algoritme Round Robin mampu mencapai RPS maksimum yang lebih tinggi (25) dibandingkan dengan algoritme Least Connection (20).
+   - Algoritme Round Robin mampu mencapai RPS maksimum yang lebih tinggi (17) dibandingkan dengan algoritme Least Connection (11).
    - Hal ini menunjukkan bahwa, untuk pengaturan dan skenario pengujian khusus ini, algoritma Round Robin memberikan kinerja yang lebih baik dalam hal menangani jumlah permintaan yang lebih tinggi per detik.
 
    - **Round Robin**:

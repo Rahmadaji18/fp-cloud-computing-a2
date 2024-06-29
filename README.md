@@ -104,6 +104,50 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
   </tr>
 </table>
 
+---
+### Revisi Rancangan & Tabel Harga
+![rancanganfptka2 drawio (1)](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/0389324b-a9e4-4a77-8227-f1a4f00dc32d)
+
+![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/22558a1b-ac7d-462e-a09f-990de1750e9d)
+![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/0742df76-eba5-436d-bca5-10a46f8d6f92)
+![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/0468d06e-a644-4e21-b878-d2c3ed7c2a05)
+
+
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Nama</th>
+    <th>Spesifikasi</th>
+    <th>Fungsi</th>
+    <th>Harga/Bulan</th>
+  </tr>
+  <tr>
+    <td>1.</td>
+    <td>KelompokTKA2A-VM1</td>
+    <td>2 Premium Intel vCPU / 2GB Memory / 90GB NVMe Disk SSD / SGP1 - Ubuntu 24.04 (LTS) x64</td>
+    <td>App Worker 1</td>
+    <td>24$</td>
+  </tr>
+  <tr>
+    <td>2.</td>
+    <td>KelompokTKA2A-VM2</td>
+    <td>2 Premium Intel vCPU / 2GB Memory / 90GB NVMe Disk SSD / SGP1 - Ubuntu 24.04 (LTS) x64</td>
+    <td>App Worker 2</td>
+    <td>24$</td>
+  </tr>
+  <tr>
+    <td>3.</td>
+    <td>KelompokTKA2A-VM3</td>
+    <td>1 Premium Intel vCPU / 2GB Memory / 70GB NVMe Disk SSD / SGP1 - Ubuntu 24.04 (LTS) x64</td>
+    <td>Load Balancer & Mongo Database</td>
+    <td>16$</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="right"><strong>Total</strong></td>
+    <td><strong>64$</strong></td>
+  </tr>
+</table>
+
 ## Implementasi
 ### Konfigurasi VM-3 (Database)
 1. Sambungkan terminal windows ke terminal vm.  

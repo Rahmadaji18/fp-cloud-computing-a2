@@ -565,9 +565,9 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
   - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 50 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 300 pengguna.
 
 ### Uji Peak Concurrency Dengan Spawn Rate 100/s
-- **34.101.97.188**
-  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/76f02003-1848-4d91-8988-26ebebac6e4d)
-  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e5dbb6e5-a6b9-4335-ae75-c10cb96e5d5b)
+- **34.101.97.188**  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/76f02003-1848-4d91-8988-26ebebac6e4d)  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e5dbb6e5-a6b9-4335-ae75-c10cb96e5d5b)  
   - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 100 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 300 pengguna.
 
 - **34.101.124.205**
@@ -596,6 +596,39 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e17fd601-485f-4697-bbb8-329fece5ad18)
   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/c0deeef2-eb37-4074-8117-3fdab01259d1)
   - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 500 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 500 pengguna.
+
+---
+### Revisi Pengujian Locust
+### Uji RPS Dalam 60 Detik
+- **68.183.178.138**  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/75c63221-d3ac-4005-b6a1-131bfa9415cb)  
+  - Garis hijau menunjukkan RPS dari waktu ke waktu.
+  - Grafik RPS menunjukkan nilai yang berfluktuasi, tetapi kita perlu mengidentifikasi RPS puncak sambil memastikan bahwa tingkat kegagalan tetap 0%.
+  - Nilai RPS puncak diamati sekitar 1337.3 permintaan per detik.
+
+### Uji Peak Concurrency Dengan Spawn Rate 50/s  
+- **68.183.178.138**  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/c91c4dc5-ceab-4309-8946-504dd2f62c58)  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/51c211ac-b3bd-44f5-b969-61e8f0a55d80)  
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 50 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 1500 pengguna.
+
+### Uji Peak Concurrency Dengan Spawn Rate 100/s  
+- **68.183.178.138**  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/b8ed5f07-9248-422a-a370-b738719c8d48)  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/b9f95e89-3fa9-4b3b-81bb-584ddd5c6a6c)  
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 100 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 1500 pengguna.
+  
+### Uji Peak Concurrency Dengan Spawn Rate 200/s  
+- **68.183.178.138**  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5c599f5e-704e-4446-8ea3-d60dc6c0d2a7)  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/7043df0e-5d0b-47df-ac07-fc701e846a18)
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 200 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 1500 pengguna.
+
+### Uji Peak Concurrency Dengan Spawn Rate 500/s  
+- **68.183.178.138**
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/c6429d9a-5f07-49a7-a8b5-5d8a8f09d695)  
+  ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/54251b6a-65df-4bad-80d0-ea5babd46ef4)
+  - Jumlah peak concurrency maksimum yang dapat ditangani server dengan tingkat pemunculan 500 pengguna per detik selama durasi 60 detik, dengan tingkat kegagalan 0%, adalah 1500 pengguna.
 
 ## Kesimpulan dan Saran
 

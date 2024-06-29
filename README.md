@@ -663,3 +663,6 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
 3. Saran
 
    Meskipun hasilnya menunjukkan tidak ada perbedaan dalam peak concurrency, metrik kinerja lain seperti respons time, failure, dan pemanfaatan sumber daya dapat memberikan wawasan tambahan. Sebagai contoh, pada tingkat pengujian dengan 500 tingkat pemijahan, server mulai menunjukkan tanda-tanda ketegangan, termasuk peningkatan respons time dan beberapa kegagalan. Hal ini menunjukkan bahwa meskipun 500 pengguna adalah batas atas, kinerja optimal mungkin berada pada tingkat concurrency yang sedikit lebih rendah untuk menghindari kegagalan dan mempertahankan waktu respons yang wajar, pengujian lebih lanjut dengan kondisi yang berbeda dan metrik yang lebih rinci mungkin diperlukan untuk membuat keputusan yang lebih tepat.
+
+## Video Revisi
+[Revisi Kelompok A2](https://youtu.be/iG51zI949VU)

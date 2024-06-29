@@ -339,11 +339,194 @@ Disini kami menggunakan 2 provider yaitu DigitalOcean dan Google Cloud Platform.
    ```bash sudo service nginx restart```  
 5. Jika sudah test load-balancer dengan refresh page berkali-kali  
    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/f566b9b1-59a5-4e92-b16d-78d78d9a08bc)  
-   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/1a361196-0730-49c8-a1e3-0d40fc5022cd)  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/1a361196-0730-49c8-a1e3-0d40fc5022cd)
 
+---
+### Revisi Implementasi
+### Konfigurasi VM-3 (Load Balancer & Database)
+#### Database:
+1. Sambungkan terminal windows ke terminal vm.  
+   ```ssh root@146.190.102.47```  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/f84cebf9-b7a4-400d-a95b-201cf0890b0c)  
+   Masukkan password vm.
+2. Jalankan beberapa command berikut untuk install MongoDB.
+   ```bash
+   sudo apt update
+   sudo apt upgrade
+   
+   # Install dependency
+   sudo apt install gnupg wget apt-transport-https ca-certificates software-properties-common
+   echo "deb http://security.ubuntu.com/ubuntu focal-security main" | sudo tee /etc/apt/sources.list.d/focal-security.list
+   sudo apt-get update
+   sudo apt-get install libssl1.1
+
+   # Install mongodb
+   curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+   echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+   sudo apt update
+   sudo apt install mongodb-org -y
+   ```
+3. Enable MongoDB.
+   ```bash
+   sudo systemctl start mongod
+   sudo systemctl enable mongod
+   ```
+4. Konfigurasi MongoDB  
+   ```sudo nano /etc/mongod.conf```  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/76e9f0cd-fe02-4a2a-99f6-2532385bc876)  
+6. Restart service MongoDB  
+   ```sudo systemctl restart mongod```  
+8. Buka port pada firewall  
+   ```sudo ufw allow 27017```  
+9. Buka shell MongoDB  
+   ```mongo```
+10. Masuk sebagai user Admin  
+    ```use admin```
+11. Buat user Admin
+    ```js
+    db.createUser({
+    user: "KelompokTKA2A",
+    pwd: "KelompokTKA2A",
+    roles: [{ role: "userAdminAnyDatabase", db: "admin" }]
+    })
+    ```
+12. Cek user yang baru dibuat  
+    ```db.getUser("KelompokTKA2A")```
+13. Sambungkan ke MongoDBCompass  
+    ```mongodb://146.190.102.47:27017```  
+14. Jika sudah bisa terhubung dengan Compass maka konfigurasi database berhasil.  
+#### Load Balancer:
+1. Lakukan beberapa command berikut untuk install nginx  
+   ```bash
+   sudo apt update
+   sudo apt upgrade -y
+   sudo apt install nginx -y
+   ```  
+2. Konfigurasikan file default pada /etc/nginx/sites-enabled/default  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/fbdcbd6e-3076-44ad-bd81-8fd49e086519)  
+
+3. Restart service nginx  
+   ```sudo service nginx restart```
+4. Lakukan tuning pada konfigurasi nginx.conf
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/18f30bc0-09ba-45cc-a7a1-b9e5bab9ad49)
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5cc36f3a-3ae1-46e8-a3d8-7e379b3bc2ee)  
+5. Restart kembali service nginx  
+   ```sudo service nginx restart```
+
+### Konfigurasi VM-1 (Worker 1)
+1. Sambungkan terminal windows ke terminal vm.
+   ```ssh root@152.42.226.87```
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/e69e9a9a-f83f-4bb0-b0ec-3c10f3a26cc0)  
+   Masukkan password vm.  
+2. Download semua resource keperluan dari github
+   ```bash
+   wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/FE/index.html
+   wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/FE/styles.css
+   wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/BE/sentiment-analysis.py
+   ```
+3. Lakukan beberapa command berikut untuk install nginx
+   ```bash
+   sudo apt update
+   sudo apt upgrade -y
+   sudo apt install nginx -y
+   ```
+4. Install dependency python
+   ```bash
+   sudo apt update
+   sudo apt install python3 -y
+   sudo apt install python3-pip -y
+   sudo apt install python3.12-venv -y
+
+   python3 -m venv myenv
+   source myenv/bin/activate
+   
+   pip install flask
+   pip install flask_cors
+   pip install gunicorn
+   pip install flask_pymongo
+   pip install textblob
+   pip install pymongo
+   pip install gevent
+   ```
+5. Pindahkan index.html kedalam /var/www/html  
+   ```mv index.html /var/www/html/index.html```  
+6. Ubah cara fetch pada index.html agar mengarah ke ip worker  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5d53aa94-fa1a-4b62-8269-7d3dedc2e3a9)  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/40c67a85-058d-466d-b3f8-6c71543099a5)  
+7. Konfigurasikan /etc/nginx/sites-enabled/default  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/f31e9a09-73e0-4abd-8f52-8b5503cc394b)  
+   Tambahkan routing ke endpoint /analyze dan /history
+8. Tuning konfigurasi pada nginx.conf
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/18f30bc0-09ba-45cc-a7a1-b9e5bab9ad49)  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5cc36f3a-3ae1-46e8-a3d8-7e379b3bc2ee)  
+9. Konfigurasikan ip database pada file sentiment-analysis.py agar tersambung  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/eedac14a-3ad1-4bba-a7f2-45659bb832ca)  
+10. Jika sudah restart nginx  
+    ```sudo service nginx restart```  
+11. Jalankan sentiment-analysis.py  
+    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/26157122-dbcd-4e67-bbd6-599b732d07b1)  
+12. Coba lakukan query untuk mengetes apakah berjalan dengan lancar  
+    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/8cd4a7cf-e81a-4ec3-876e-5a9c16543163)  
+    Jika muncul seperti gambar maka konfigurasi benar.  
+
+### Konfigurasi VM-2 (Worker 2)
+1. Sambungkan terminal windows ke terminal vm.  
+   ```ssh root@152.42.229.121```  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/2024e70a-a1e0-4839-be45-6801a28178a4)  
+   Masukkan password vm.  
+2. Download semua resource keperluan dari github  
+   ```bash
+   wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/FE/index.html
+   wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/FE/styles.css
+   wget https://raw.githubusercontent.com/fuaddary/fp-tka/main/Resources/BE/sentiment-analysis.py
+   ```
+3. Lakukan beberapa command berikut untuk install nginx
+   ```bash
+   sudo apt update
+   sudo apt upgrade -y
+   sudo apt install nginx -y
+   ```
+4. Install dependency python
+   ```bash
+   sudo apt update
+   sudo apt install python3 -y
+   sudo apt install python3-pip -y
+   sudo apt install python3.12-venv -y
+
+   python3 -m venv myenv
+   source myenv/bin/activate
+   
+   pip install flask
+   pip install flask_cors
+   pip install gunicorn
+   pip install flask_pymongo
+   pip install textblob
+   pip install pymongo
+   pip install gevent
+   ```
+5. Pindahkan index.html kedalam /var/www/html  
+   ```mv index.html /var/www/html/index.html```  
+6. Ubah cara fetch pada index.html agar mengarah ke ip worker  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/de4a5033-16d6-459c-a2d3-cb597d6414bb)
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/955c5726-d483-4750-b1a7-22d4a295c22e)
+7. Konfigurasikan /etc/nginx/sites-enabled/default  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/ae12a6c7-8f6a-4b3a-98c9-37460636f646)  
+   Tambahkan routing ke endpoint /analyze dan /history
+8. Tuning konfigurasi pada nginx.conf
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/18f30bc0-09ba-45cc-a7a1-b9e5bab9ad49)  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/5cc36f3a-3ae1-46e8-a3d8-7e379b3bc2ee)  
+9. Konfigurasikan ip database pada file sentiment-analysis.py agar tersambung  
+   ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/eedac14a-3ad1-4bba-a7f2-45659bb832ca)  
+10. Jika sudah restart nginx  
+    ```bash sudo service nginx restart```  
+11. Jalankan sentiment-analysis.py  
+    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/70c103c0-199d-4306-b310-b72545057335)  
+12. Coba lakukan query untuk mengetes apakah berjalan dengan lancar  
+    ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/c73b8b6e-2d74-4b4c-aed0-8f6b32b79596)  
+    Jika muncul seperti gambar maka konfigurasi benar.
 ## Hasil Pengujian Endpoint  
 ### Uji Endpoint /analyze  
-#### 152.42.229.121/analyze
+#### 152.42.229.121/analyze  
 ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/6306661d-3768-4473-ab89-05f90e191962)
 #### 152.42.226.87/analyze
 ![image](https://github.com/Rahmadaji18/fp-cloud-computing-a2/assets/62441217/a47c71fe-46e2-4cf7-9feb-50b38ada1536)
